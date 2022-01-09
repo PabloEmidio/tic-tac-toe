@@ -22,15 +22,10 @@ void register_value(int value, int arr[]){
 }
 
 bool has(int arr[], int item){
-    bool success = false;
-
     for(int i = 0; i < size(arr); i++){
-        if(arr[i] == item) {
-            success = true;
-            break;
-        }
+        if(arr[i] == item) return true;
     }
-    return success;
+    return false;
 }
 
 int size(int arr[]){
