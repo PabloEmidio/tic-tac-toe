@@ -18,3 +18,5 @@ char get_played_symbol(int position, int player_moves[], int bot_moves[]);
 int random_move(int player_moves[], int bot_moves[]);
 
 bool is_game_drawn(int player_moves[], int bot_moves[]);
+
+bool available(int player_moves[], int bot_moves[], int position);

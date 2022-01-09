@@ -83,73 +83,73 @@ void bot_move(int tic_tac_toe[3][3], int player_moves[], int bot_moves[]){
     }
 
     // horizontal moves case
-    if           (has(bot_moves, 1) && has(bot_moves, 2) && !(has(bot_moves, 3) || has(player_moves, 3))) move = 3;
-    else if      (has(bot_moves, 1) && has(bot_moves, 3) && !(has(bot_moves, 2) || has(player_moves, 2))) move = 2;
-    else if      (has(bot_moves, 2) && has(bot_moves, 3) && !(has(bot_moves, 1) || has(player_moves, 1))) move = 1;
+    if           (has(bot_moves, 1) && has(bot_moves, 2) && available(player_moves, bot_moves, 3)) move = 3;
+    else if      (has(bot_moves, 1) && has(bot_moves, 3) && available(player_moves, bot_moves, 2)) move = 2;
+    else if      (has(bot_moves, 2) && has(bot_moves, 3) && available(player_moves, bot_moves, 1)) move = 1;
 
-    else if      (has(bot_moves, 4) && has(bot_moves, 5) && !(has(bot_moves, 6) || has(player_moves, 6))) move = 6;
-    else if      (has(bot_moves, 4) && has(bot_moves, 6) && !(has(bot_moves, 5) || has(player_moves, 5))) move = 5;
-    else if      (has(bot_moves, 5) && has(bot_moves, 6) && !(has(bot_moves, 4) || has(player_moves, 4))) move = 4;
+    else if      (has(bot_moves, 4) && has(bot_moves, 5) && available(player_moves, bot_moves, 6)) move = 6;
+    else if      (has(bot_moves, 4) && has(bot_moves, 6) && available(player_moves, bot_moves, 5)) move = 5;
+    else if      (has(bot_moves, 5) && has(bot_moves, 6) && available(player_moves, bot_moves, 4)) move = 4;
 
-    else if      (has(bot_moves, 7) && has(bot_moves, 8) && !(has(bot_moves, 9) || has(player_moves, 9))) move = 9;
-    else if      (has(bot_moves, 7) && has(bot_moves, 9) && !(has(bot_moves, 8) || has(player_moves, 8))) move = 8;
-    else if      (has(bot_moves, 8) && has(bot_moves, 9) && !(has(bot_moves, 7) || has(player_moves, 7))) move = 7;
+    else if      (has(bot_moves, 7) && has(bot_moves, 8) && available(player_moves, bot_moves, 9)) move = 9;
+    else if      (has(bot_moves, 7) && has(bot_moves, 9) && available(player_moves, bot_moves, 8)) move = 8;
+    else if      (has(bot_moves, 8) && has(bot_moves, 9) && available(player_moves, bot_moves, 7)) move = 7;
 
     // vertical moves case
-    else if      (has(bot_moves, 1) && has(bot_moves, 4) && !(has(bot_moves, 7) || has(player_moves, 7))) move = 7;
-    else if      (has(bot_moves, 1) && has(bot_moves, 7) && !(has(bot_moves, 4) || has(player_moves, 4))) move = 4;
-    else if      (has(bot_moves, 4) && has(bot_moves, 7) && !(has(bot_moves, 1) || has(player_moves, 1))) move = 1;
+    else if      (has(bot_moves, 1) && has(bot_moves, 4) && available(player_moves, bot_moves, 7)) move = 7;
+    else if      (has(bot_moves, 1) && has(bot_moves, 7) && available(player_moves, bot_moves, 4)) move = 4;
+    else if      (has(bot_moves, 4) && has(bot_moves, 7) && available(player_moves, bot_moves, 1)) move = 1;
 
-    else if      (has(bot_moves, 2) && has(bot_moves, 5) && !(has(bot_moves, 8) || has(player_moves, 8))) move = 8;
-    else if      (has(bot_moves, 2) && has(bot_moves, 8) && !(has(bot_moves, 5) || has(player_moves, 5))) move = 5;
-    else if      (has(bot_moves, 5) && has(bot_moves, 8) && !(has(bot_moves, 2) || has(player_moves, 2))) move = 2;
+    else if      (has(bot_moves, 2) && has(bot_moves, 5) && available(player_moves, bot_moves, 8)) move = 8;
+    else if      (has(bot_moves, 2) && has(bot_moves, 8) && available(player_moves, bot_moves, 5)) move = 5;
+    else if      (has(bot_moves, 5) && has(bot_moves, 8) && available(player_moves, bot_moves, 2)) move = 2;
 
-    else if      (has(bot_moves, 3) && has(bot_moves, 6) && !(has(bot_moves, 9) || has(player_moves, 9))) move = 9;
-    else if      (has(bot_moves, 3) && has(bot_moves, 9) && !(has(bot_moves, 6) || has(player_moves, 6))) move = 6;
-    else if      (has(bot_moves, 6) && has(bot_moves, 9) && !(has(bot_moves, 3) || has(player_moves, 3))) move = 3;
+    else if      (has(bot_moves, 3) && has(bot_moves, 6) && available(player_moves, bot_moves, 9)) move = 9;
+    else if      (has(bot_moves, 3) && has(bot_moves, 9) && available(player_moves, bot_moves, 6)) move = 6;
+    else if      (has(bot_moves, 6) && has(bot_moves, 9) && available(player_moves, bot_moves, 3)) move = 3;
 
     // diagonal moves case
-    else if      (has(bot_moves, 1) && has(bot_moves, 5) && !(has(bot_moves, 9) || has(player_moves, 9))) move = 9;
-    else if      (has(bot_moves, 1) && has(bot_moves, 9) && !(has(bot_moves, 5) || has(player_moves, 5))) move = 5;
-    else if      (has(bot_moves, 5) && has(bot_moves, 9) && !(has(bot_moves, 1) || has(player_moves, 1))) move = 1;
+    else if      (has(bot_moves, 1) && has(bot_moves, 5) && available(player_moves, bot_moves, 9)) move = 9;
+    else if      (has(bot_moves, 1) && has(bot_moves, 9) && available(player_moves, bot_moves, 5)) move = 5;
+    else if      (has(bot_moves, 5) && has(bot_moves, 9) && available(player_moves, bot_moves, 1)) move = 1;
 
-    else if      (has(bot_moves, 1) && has(bot_moves, 5) && !(has(bot_moves, 9) || has(player_moves, 9))) move = 9;
-    else if      (has(bot_moves, 1) && has(bot_moves, 9) && !(has(bot_moves, 5) || has(player_moves, 5))) move = 5;
-    else if      (has(bot_moves, 5) && has(bot_moves, 9) && !(has(bot_moves, 1) || has(player_moves, 1))) move = 1;
+    else if      (has(bot_moves, 1) && has(bot_moves, 5) && available(player_moves, bot_moves, 9)) move = 9;
+    else if      (has(bot_moves, 1) && has(bot_moves, 9) && available(player_moves, bot_moves, 5)) move = 5;
+    else if      (has(bot_moves, 5) && has(bot_moves, 9) && available(player_moves, bot_moves, 1)) move = 1;
 
     // moves that stop the player's winning
-    else if(has(player_moves, 2) && has(player_moves, 3) && !(has(player_moves, 1) || has(bot_moves, 1))) move = 1;
-    else if(has(player_moves, 5) && has(player_moves, 9) && !(has(player_moves, 1) || has(bot_moves, 1))) move = 1;
-    else if(has(player_moves, 4) && has(player_moves, 7) && !(has(player_moves, 1) || has(bot_moves, 1))) move = 1;
+    else if(has(player_moves, 2) && has(player_moves, 3) && available(player_moves, bot_moves, 1)) move = 1;
+    else if(has(player_moves, 5) && has(player_moves, 9) && available(player_moves, bot_moves, 1)) move = 1;
+    else if(has(player_moves, 4) && has(player_moves, 7) && available(player_moves, bot_moves, 1)) move = 1;
 
-    else if(has(player_moves, 1) && has(player_moves, 3) && !(has(player_moves, 2) || has(bot_moves, 2))) move = 2;
-    else if(has(player_moves, 5) && has(player_moves, 8) && !(has(player_moves, 2) || has(bot_moves, 2))) move = 2;
+    else if(has(player_moves, 1) && has(player_moves, 3) && available(player_moves, bot_moves, 2)) move = 2;
+    else if(has(player_moves, 5) && has(player_moves, 8) && available(player_moves, bot_moves, 2)) move = 2;
 
-    else if(has(player_moves, 2) && has(player_moves, 1) && !(has(player_moves, 3) || has(bot_moves, 3))) move = 3;
-    else if(has(player_moves, 6) && has(player_moves, 9) && !(has(player_moves, 3) || has(bot_moves, 3))) move = 3;
-    else if(has(player_moves, 5) && has(player_moves, 7) && !(has(player_moves, 3) || has(bot_moves, 3))) move = 3;
+    else if(has(player_moves, 2) && has(player_moves, 1) && available(player_moves, bot_moves, 3)) move = 3;
+    else if(has(player_moves, 6) && has(player_moves, 9) && available(player_moves, bot_moves, 3)) move = 3;
+    else if(has(player_moves, 5) && has(player_moves, 7) && available(player_moves, bot_moves, 3)) move = 3;
 
-    else if(has(player_moves, 5) && has(player_moves, 6) && !(has(player_moves, 4) || has(bot_moves, 4))) move = 4;
-    else if(has(player_moves, 1) && has(player_moves, 7) && !(has(player_moves, 4) || has(bot_moves, 4))) move = 4;
+    else if(has(player_moves, 5) && has(player_moves, 6) && available(player_moves, bot_moves, 4)) move = 4;
+    else if(has(player_moves, 1) && has(player_moves, 7) && available(player_moves, bot_moves, 4)) move = 4;
 
-    else if(has(player_moves, 4) && has(player_moves, 6) && !(has(player_moves, 5) || has(bot_moves, 5))) move = 5;
-    else if(has(player_moves, 3) && has(player_moves, 7) && !(has(player_moves, 5) || has(bot_moves, 5))) move = 5;
-    else if(has(player_moves, 2) && has(player_moves, 8) && !(has(player_moves, 5) || has(bot_moves, 5))) move = 5;
-    else if(has(player_moves, 1) && has(player_moves, 9) && !(has(player_moves, 5) || has(bot_moves, 5))) move = 5;
+    else if(has(player_moves, 4) && has(player_moves, 6) && available(player_moves, bot_moves, 5)) move = 5;
+    else if(has(player_moves, 3) && has(player_moves, 7) && available(player_moves, bot_moves, 5)) move = 5;
+    else if(has(player_moves, 2) && has(player_moves, 8) && available(player_moves, bot_moves, 5)) move = 5;
+    else if(has(player_moves, 1) && has(player_moves, 9) && available(player_moves, bot_moves, 5)) move = 5;
 
-    else if(has(player_moves, 4) && has(player_moves, 5) && !(has(player_moves, 6) || has(bot_moves, 6))) move = 6;
-    else if(has(player_moves, 3) && has(player_moves, 9) && !(has(player_moves, 6) || has(bot_moves, 6))) move = 6;
+    else if(has(player_moves, 4) && has(player_moves, 5) && available(player_moves, bot_moves, 6)) move = 6;
+    else if(has(player_moves, 3) && has(player_moves, 9) && available(player_moves, bot_moves, 6)) move = 6;
 
-    else if(has(player_moves, 8) && has(player_moves, 9) && !(has(player_moves, 7) || has(bot_moves, 7))) move = 7;
-    else if(has(player_moves, 1) && has(player_moves, 4) && !(has(player_moves, 7) || has(bot_moves, 7))) move = 7;
-    else if(has(player_moves, 3) && has(player_moves, 5) && !(has(player_moves, 7) || has(bot_moves, 7))) move = 7;
+    else if(has(player_moves, 8) && has(player_moves, 9) && available(player_moves, bot_moves, 7)) move = 7;
+    else if(has(player_moves, 1) && has(player_moves, 4) && available(player_moves, bot_moves, 7)) move = 7;
+    else if(has(player_moves, 3) && has(player_moves, 5) && available(player_moves, bot_moves, 7)) move = 7;
     
-    else if(has(player_moves, 6) && has(player_moves, 7) && !(has(player_moves, 8) || has(bot_moves, 8))) move = 8;
-    else if(has(player_moves, 2) && has(player_moves, 5) && !(has(player_moves, 8) || has(bot_moves, 8))) move = 8;
+    else if(has(player_moves, 6) && has(player_moves, 7) && available(player_moves, bot_moves, 8)) move = 8;
+    else if(has(player_moves, 2) && has(player_moves, 5) && available(player_moves, bot_moves, 8)) move = 8;
 
-    else if(has(player_moves, 7) && has(player_moves, 8) && !(has(player_moves, 9) || has(bot_moves, 9))) move = 9;
-    else if(has(player_moves, 3) && has(player_moves, 6) && !(has(player_moves, 9) || has(bot_moves, 9))) move = 9;
-    else if(has(player_moves, 1) && has(player_moves, 5) && !(has(player_moves, 9) || has(bot_moves, 9))) move = 9;
+    else if(has(player_moves, 7) && has(player_moves, 8) && available(player_moves, bot_moves, 9)) move = 9;
+    else if(has(player_moves, 3) && has(player_moves, 6) && available(player_moves, bot_moves, 9)) move = 9;
+    else if(has(player_moves, 1) && has(player_moves, 5) && available(player_moves, bot_moves, 9)) move = 9;
 
     // else move
     else move = random_move(player_moves, bot_moves);
@@ -232,4 +232,8 @@ int random_move(int player_moves[], int bot_moves[]){
 
 bool is_game_drawn(int player_moves[], int bot_moves[]){
     return size(player_moves) + size(bot_moves) > MAX_GAME_MOVES;
+}
+
+bool available(int player_moves[], int bot_moves[], int position){
+    return !(has(player_moves, position) || has(bot_moves, position));
 }
