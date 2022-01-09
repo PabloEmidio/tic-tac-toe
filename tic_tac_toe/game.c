@@ -135,6 +135,7 @@ void bot_move(int tic_tac_toe[3][3], int player_moves[], int bot_moves[]){
     else if(has(player_moves, 4) && has(player_moves, 6) && !(has(player_moves, 5) || has(bot_moves, 5))) move = 5;
     else if(has(player_moves, 3) && has(player_moves, 7) && !(has(player_moves, 5) || has(bot_moves, 5))) move = 5;
     else if(has(player_moves, 2) && has(player_moves, 8) && !(has(player_moves, 5) || has(bot_moves, 5))) move = 5;
+    else if(has(player_moves, 1) && has(player_moves, 9) && !(has(player_moves, 5) || has(bot_moves, 5))) move = 5;
 
     else if(has(player_moves, 4) && has(player_moves, 5) && !(has(player_moves, 6) || has(bot_moves, 6))) move = 6;
     else if(has(player_moves, 3) && has(player_moves, 9) && !(has(player_moves, 6) || has(bot_moves, 6))) move = 6;
