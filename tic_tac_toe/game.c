@@ -31,11 +31,11 @@ void draw_game(int tic_tac_toe[3][3], int player_moves[], int bot_moves[]){
     }
 }
 
-bool game_ended(int player_moves[], int bot_moves[]){
+bool is_game_ended(int player_moves[], int bot_moves[]){
     return is_game_drawn(player_moves, bot_moves) || right_combination(player_moves) || right_combination(bot_moves);
 }
 
-bool player_move(int tic_tac_toe[3][3], int player_moves[], int bot_moves[]){
+void player_move(int tic_tac_toe[3][3], int player_moves[], int bot_moves[]){
     system(CLEAR);
     draw_game(tic_tac_toe, player_moves, bot_moves);
     sleep(0.8);
@@ -69,12 +69,9 @@ bool player_move(int tic_tac_toe[3][3], int player_moves[], int bot_moves[]){
     } while(already_played);
 
     register_value(move, player_moves);
-
-    return game_ended(player_moves, bot_moves);
-
 }
 
-bool bot_move(int tic_tac_toe[3][3], int player_moves[], int bot_moves[]){
+void bot_move(int tic_tac_toe[3][3], int player_moves[], int bot_moves[]){
     system(CLEAR);
     draw_game(tic_tac_toe, player_moves, bot_moves);
     printf("\n\nBot is playing...\n");
@@ -156,8 +153,6 @@ bool bot_move(int tic_tac_toe[3][3], int player_moves[], int bot_moves[]){
     // else move
     else move = random_move(player_moves, bot_moves);
     register_value(move, bot_moves);
-
-    return game_ended(player_moves, bot_moves);
 }
 
 bool right_combination(int moves[]){
@@ -235,8 +230,5 @@ int random_move(int player_moves[], int bot_moves[]){
 }
 
 bool is_game_drawn(int player_moves[], int bot_moves[]){
-    if(size(player_moves) + size(bot_moves) > MAX_GAME_MOVES){
-        return true;
-    }
-    return false;
+    return size(player_moves) + size(bot_moves) > MAX_GAME_MOVES;
 }

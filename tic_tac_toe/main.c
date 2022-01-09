@@ -10,15 +10,17 @@ int main(){
     int player_moves[MAX_INDIVIDUAL_MOVE] = {0, 0, 0, 0, 0};
     int bot_moves[MAX_INDIVIDUAL_MOVE] = {0, 0, 0, 0, 0};
     
-    bool ended = false;
+    int move = 0;
     
     do {
-        ended = player_move(tic_tac_toe, player_moves, bot_moves);
-        if(ended) break;
-
-        ended = bot_move(tic_tac_toe, player_moves, bot_moves);
-        if(ended) break;
-    } while(!game_ended(player_moves, bot_moves));
+        if(move % 2 == 0){
+            player_move(tic_tac_toe, player_moves, bot_moves);
+        }
+        else{
+            bot_move(tic_tac_toe, player_moves, bot_moves);
+        }
+        move++;
+    } while(!is_game_ended(player_moves, bot_moves));
 
     if(right_combination(player_moves)){
         printf("    XXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");

@@ -3,11 +3,11 @@
 
 void draw_game(int tic_tac_toe[3][3], int player_moves[], int bot_moves[]);
 
-bool game_ended(int player_moves[], int bot_moves[]);
+bool is_game_ended(int player_moves[], int bot_moves[]);
 
-bool player_move(int tic_tac_toe[3][3], int player_moves[], int bot_moves[]);
+void player_move(int tic_tac_toe[3][3], int player_moves[], int bot_moves[]);
 
-bool bot_move(int tic_tac_toe[3][3], int player_moves[], int bot_moves[]);
+void bot_move(int tic_tac_toe[3][3], int player_moves[], int bot_moves[]);
 
 bool right_combination(int moves[]);
 
