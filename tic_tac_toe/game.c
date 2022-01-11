@@ -15,13 +15,19 @@
 
 
 
-void draw_game(int tic_tac_toe[3][3], int player_moves[], int bot_moves[]){
+void draw_game(int tic_tac_toe[3][3], int player_moves[], int bot_moves[], int is_game_ended){
+    if(!is_game_ended) system(CLEAR);
     for (int i = 0; i < 3; i++){
         printf("\t");
         for (int j = 0; j < 3; j++){
             bool last_loop = j != 2;
             if(!played(tic_tac_toe[i][j], player_moves, bot_moves)){
-                printf("%s%d%s", last_loop ? "" : "", tic_tac_toe[i][j], last_loop ? "    |    " : "");
+                if(!is_game_ended){
+                    printf("%s%d%s", last_loop ? "" : "", tic_tac_toe[i][j], last_loop ? "    |    " : "");
+                }
+                else{
+                    printf("%s%s%s", last_loop ? "" : "", "", last_loop ? "    |    " : "");
+                }
             } else{
                 char symbol = get_played_symbol(tic_tac_toe[i][j], player_moves, bot_moves);
                 printf("%s%c%s", last_loop ? "" : "", symbol, last_loop ? "    |    " : "");
@@ -29,6 +35,7 @@ void draw_game(int tic_tac_toe[3][3], int player_moves[], int bot_moves[]){
         }
         printf("%s", i != 2 ? "\n  ---------------------------------\n" : "\n");
     }
+    sleep(0.8);
 }
 
 bool is_game_ended(int player_moves[], int bot_moves[]){
@@ -36,10 +43,6 @@ bool is_game_ended(int player_moves[], int bot_moves[]){
 }
 
 void player_move(int tic_tac_toe[3][3], int player_moves[], int bot_moves[]){
-    system(CLEAR);
-    draw_game(tic_tac_toe, player_moves, bot_moves);
-    sleep(0.8);
-
     if (size(player_moves) == MAX_INDIVIDUAL_MOVE) {
         exit(1);
     }
@@ -72,9 +75,7 @@ void player_move(int tic_tac_toe[3][3], int player_moves[], int bot_moves[]){
 }
 
 void bot_move(int tic_tac_toe[3][3], int player_moves[], int bot_moves[]){
-    system(CLEAR);
-    draw_game(tic_tac_toe, player_moves, bot_moves);
-    printf("\n\nBot is playing...\n");
+    printf("\n\nBot is playing...\n\n");
     sleep(2);
 
     int move = 0;

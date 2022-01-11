@@ -13,6 +13,7 @@ int main(){
     int move = 0;
     
     do {
+        draw_game(tic_tac_toe, player_moves, bot_moves, is_game_ended(player_moves, bot_moves));
         if(move % 2 == 0){
             player_move(tic_tac_toe, player_moves, bot_moves);
         }
@@ -93,7 +94,7 @@ int main(){
     }
 
     printf("\n\n");
-    draw_game(tic_tac_toe, player_moves, bot_moves);
+    draw_game(tic_tac_toe, player_moves, bot_moves, is_game_ended(player_moves, bot_moves));
     printf("\n\n");
 
     return 0;

@@ -1,7 +1,7 @@
 #define MAX_GAME_MOVES 9
 #define MAX_INDIVIDUAL_MOVE 5
 
-void draw_game(int tic_tac_toe[3][3], int player_moves[], int bot_moves[]);
+void draw_game(int tic_tac_toe[3][3], int player_moves[], int bot_moves[], int is_game_ended);
 
 bool is_game_ended(int player_moves[], int bot_moves[]);
 
